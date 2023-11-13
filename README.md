@@ -24,18 +24,6 @@
     - `||` OR
 
 
-<<<<<<< HEAD
-|No. | Lecture                          | Video 	| Starter 	| Solution 	|
-|----|------------------------------	|:-----:	|--------	|---------	|
-|1 | JavaScript Fundamentals            | |[01_starter](https://github.com/RikkuX491/EAST-SE-111323-Phase-1/tree/01_starter)| |
-|2 | Functions & Scope                	| | | |
-|3 | DOM Manipulation                 	| | | |
-|4 | DOM Events                       	| | | |
-|5 | Communicating with the Server    	| | | |
-|6 | POST Requests                    	| | | |
-|7 | PATCH & DELETE Requests          	| | | |
-|8 | Communicating with External APIs 	| | | |
-=======
 ## Deliverables
 
 We've been asked to build a website for a new restaurant, Flatburger, that displays a menu of food served at the restaurant.
@@ -113,4 +101,3 @@ typeof "Hello"
 typeof true
 //=> 'boolean'
 ```
->>>>>>> 6171576592e3b5090e269397bf35956885ea1d09
