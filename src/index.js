@@ -55,3 +55,54 @@ const otherFoods = [
 ]
 
 // write your code here
+//deliverable 1
+for(let i = 0; i < burgers.length; i++){
+    const img = document.createElement('img')
+    img.className = 'burger'
+    img.src = burgers[i].image
+    const restaruntMenu = document.querySelector('#restaurant-menu')
+    restaruntMenu.appendChild(img)
+   
+}
+
+//deliverable 2
+otherFoods.forEach( food => 
+    {const img = document.createElement('img')
+    img.src = food.image
+    const restaruntMenu = document.querySelector('#restaurant-menu')
+    restaruntMenu.appendChild(img)
+})   
+
+//deliverable 3
+const image = document.querySelector('.detail-image')
+console.log(image)
+image.src = burgers[0].image
+
+//deliverable 4
+const name1 = document.querySelectorAll('.name')[0]  //?????
+console.log(name1)
+name1.textContent = burgers[0].name
+
+//deliverable 5
+const description = document.getElementById('description-display')
+console.log(description)
+description.textContent = burgers[0].description
+
+//deliverable 6
+const imgs = document.querySelectorAll('#restaurant-menu img')
+console.log(imgs)
+imgs.forEach( styles => {
+    styles.style.borderStyle = 'solid'
+    styles.style.borderColor = 'red'
+    styles.style.borderWidth = '3px'
+}
+)
+
+//deliverable 7
+const imgBurger = document.getElementsByClassName('burger')
+console.log(imgBurger)
+
+for(i = 0; i < imgBurger.length; i++){
+ imgBurger[i].style.borderColor = 'blue'
+}
+
