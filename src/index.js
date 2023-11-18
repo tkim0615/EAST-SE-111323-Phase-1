@@ -51,19 +51,77 @@ const foods = [
     }
 ]
 
-const restaurantMenu = document.getElementById('restaurant-menu')
 
+
+const restaurantMenu = document.getElementById('restaurant-menu')
+////////////////////////////////////////////////////////////////////////beginning of forEach code
 foods.forEach(food => {
+addFoodImageToRestaruntMenu(food)
+///deliverable 1 solution by TK////////////below eventlistener is inside foreach code so 'food' parameter is within same scope
+})
+//////////////////////////////////////////////////////////////////////////ending
+//below is refactoring the for each loop
+function addFoodImageToRestaruntMenu(food){
     const foodImage = document.createElement('img')
     foodImage.src = food.image
     restaurantMenu.appendChild(foodImage)
-})
 
-const foodDetailImage = document.querySelector('.detail-image')
-foodDetailImage.src = foods[0].image
+    foodImage.addEventListener('click', () => {
+    displayFoodDetails(food)
+ })
+}
 
-const foodName = document.querySelector('.name') 
-foodName.textContent = foods[0].name
+//make a function to add into above foodImage event listener since it's repetitive to write below 3 variables
+function displayFoodDetails(food){   //food parameter is not equivalent to food paramet above, they are in different scope 
+    
+    const foodDetailImage = document.querySelector('.detail-image')
+    foodDetailImage.src = food.image
+    const foodName = document.querySelector('.name') 
+    foodName.textContent = food.name
+    const foodDescriptionDisplay = document.querySelector('#description-display')
+    foodDescriptionDisplay.textContent = food.description
+}
+////////////below variables are in Global scope, different from above function scope
+displayFoodDetails(foods[0]) // set initial page to load 1st food in foods array
 
-const foodDescriptionDisplay = document.querySelector('#description-display')
-foodDescriptionDisplay.textContent = foods[0].description
+
+
+//deliverable solution 2
+const newFoodForm = document.getElementById('new-food')
+
+newFoodForm.addEventListener('submit', (e) => {e.preventDefault()   //form is submit event, click would respond to any click on any part of Form
+
+const newNameInputElement = document.getElementById('new-name')
+const newImageInputElemet = document.getElementById('new-image')
+const newDescriptionInputElement = document.getElementById('new-description')
+
+
+const newFood = {                                   ///food was object with 3 key and values. creating same for new food to be added
+    name: newNameInputElement.value,    ///pulling from above variable. 
+    image: newImageInputElemet.value,
+    description: newDescriptionInputElement.value
+}
+
+addFoodImageToRestaruntMenu(newFood)
+newFoodForm.reset()
+
+}
+)
+    
+    
+
+
+
+
+
+
+
+
+// const foodDetailImage = document.querySelector('.detail-image')
+// foodDetailImage.src = foods[1].image
+
+// const foodName = document.querySelector('.name') 
+// foodName.textContent = foods[1].name
+
+// const foodDescriptionDisplay = document.querySelector('#description-display')
+// foodDescriptionDisplay.textContent = foods[1].description
