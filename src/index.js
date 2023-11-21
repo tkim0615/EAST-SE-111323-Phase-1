@@ -53,13 +53,27 @@ newFoodForm.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(newFood)
     })
-    .then(response => response.json())
-    .then(newFood => {
-        addFoodImageToRestaurantMenu(newFood)
+    .then(response => {
+        if(response.ok === true){                  /////// can replace if with below commented code line 64 to 78
+            response.json().then(newFoodData => {
 
+                // Pessimistic Rendering
+                addFoodImageToRestaurantMenu(newFoodData)
+            })
+        }
+        else{
+            alert("Error: Unable to add new food!")
+        }
     })
-        
-    
 
     newFoodForm.reset()
 })
+
+
+
+// //// .then(response => response.json())
+// .then(newFood => {
+//     addFoodImageToRestaurantMenu(newFood)
+
+// })
+    
