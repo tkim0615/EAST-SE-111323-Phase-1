@@ -123,9 +123,9 @@ likesButtonElement.addEventListener('click', () => {
     .then(updatedFood => {
 
         // Pessimistic Rendering
-        likesSpanElement.textContent = updatedFood.likes
+        likesSpanElement.textContent = updatedFood.likes     // tk. increasing # of likes immediately
         
-        foodsArrayCopy = foodsArrayCopy.map(food => {
+        foodsArrayCopy = foodsArrayCopy.map(food => {       //creating saved state, to make it persist.. Get Global reference to array with foods, update that copy
             if(food.id === updatedFood.id){
                 return updatedFood
             }
@@ -134,11 +134,11 @@ likesButtonElement.addEventListener('click', () => {
             }
         })
 
-        updateRestaurantMenu()
+        updateRestaurantMenu()      
     })
 })
-
-function updateRestaurantMenu(){
+//refactored
+function updateRestaurantMenu(){               //updating whole menu. first empty out innerHTMl and adding ell elements based on the copy
     restaurantMenu.innerHTML = ""
     foodsArrayCopy.forEach(food => {
         addFoodImageToRestaurantMenu(food)
